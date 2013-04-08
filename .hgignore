@@ -1,0 +1,9 @@
+syntax: glob
+*.pyc
+*.DS_Store
+*.orig
+*.git
+dev-env/**
+jwpevans/public/static/**
+/db/
+*.sqlite3

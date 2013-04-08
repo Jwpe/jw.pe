@@ -1,0 +1,19 @@
+{% extends "blog/blog_base.html" %}
+
+{% block title %}Posts from {{ day|date:"F d Y" }}{% endblock %}
+
+{% block blog %}
+	<h1>Posts from {{ day|date:"F d Y" }}</h1>
+	{% for post in object_list %}
+		<h2 class="title">
+			<a href="{{ post.get_absolute_url }}">{{ post.title }}
+			</a>
+		</h3>
+		<p class="date">
+			{{ post.publish|date:"F d Y" }}
+		</p>
+		<p class="tease">
+			{{ post.tease|safe }}
+		</p>
+	{% endfor %}
+{% endblock %}

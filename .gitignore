@@ -1,0 +1,12 @@
+*.pyc
+*.pyo
+.DS_Store
+*~
+media
+.hg
+jwpevans/db
+jwpevans/public
+*.sqlite3
+.env
+.foreman
+.vfenv

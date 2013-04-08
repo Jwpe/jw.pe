@@ -1,0 +1,52 @@
+{% extends "blog/blog_base.html" %}
+
+{% block meta %}
+	<meta name = 'description' content = 'Blogs by Jonathan Evans on web development, life and various other subjects.'>
+{% endblock %}
+
+{% block blog %}
+	{% for post in posts %}
+		<div class = "dividerTop">
+		</div>
+
+		<article class ="blog">
+
+			<h2 class="title">
+				<a href="{{ post.get_absolute_url }}">{{ post.title }}
+				</a>
+			</h2>
+			<p>
+				<span class="date">
+					{{ post.publish|date:"l, F jS, Y" }}
+				</span>
+			</p>
+			<p class="tease">
+				{{ post.tease|safe }}
+			</p>
+			<p>
+				<a href="{{ post.get_absolute_url }}"> Read more
+				</a>
+			</p>
+		</article>
+
+		<div class = "dividerBottom">
+		</div>
+
+	{% endfor %}
+
+	{% if is_paginated %}
+	<p class="pagination">
+		{% if has_next %}
+			<a class="older" href="?page={{ next }}"> 
+				Older
+			</a>
+		{% endif %}
+		{% if has_next and has_previous %} | {% endif %}
+		{% if has_previous %}
+			<a class="newer" href="?page={{ previous }}">
+				Newer
+			</a>
+		{% endif %}
+	</p>
+	{% endif %}
+{% endblock %}

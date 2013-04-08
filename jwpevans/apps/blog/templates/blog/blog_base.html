@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load archive %}
+
+{% block title %}Forms + Functions - web development, life, the universe and everything{% endblock %}
+
+{% block javascript %}
+{% endblock %}
+
+{% block body %}{%endblock %}
+
+{% block content %}
+<div class = "container">
+	<div class = "row-fluid">
+		<div class = "span12">
+			<section id = "header">
+					<a href = "/blog/">
+						<div class = "parallelogram">
+							<div id = "parallelogram1">
+							</div>
+							<div id = "parallelogram2">
+							</div>
+							<div id = "parallelogram3">
+							</div>
+						</div>
+						<header>
+							<h1>Forms <span class ="blue">+</span> Functions</h1>
+							<h2>web development, life, the universe and everything</h2>
+						</header>
+					</a>
+			</section>
+		</div>
+	</div>
+	<div class ="row-fluid">
+		<div class = "span12">
+			<nav>
+				<div class = "identifier">
+					<p>by <strong>Jonathan Evans</strong></p>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class = "row-fluid">
+		<div class = "span9">
+			{% block blog %}
+			{% endblock %}
+		</div>
+		<div class = "span3">
+			<section class = "sidebar" id = "whoami">
+				<header>
+					About:
+				</header>
+				<p>
+					Erstwhile engineer - currently working as a web developer.
+					My interests range from programming to philosophy. When not building websites, I enjoy cycling, reading, gaming and brewing (and subsequently drinking) beer.
+				</p>
+			</section>
+			<section class = "sidebar" id = "twitter">
+				<header>
+					Follow Me:
+				</header>
+				<ul>
+					<li>
+						<a href = "http://www.twitter.com/jwpe" target ="_blank">
+							Jonathan on Twitter
+						</a>
+					</li>
+					<li>
+						<a href = "https://github.com/Jwpe" target ="_blank">
+							Jonathan on github
+						</a>
+					</li>
+				<ul>
+			</section>
+			<section class = "sidebar" id = "archive">
+				<header>
+					Archive:
+				</header>
+				{% get_post_archive as dates %}
+				<ul>
+				  {% for date in dates %}
+					  <li><a href="{% url blog_archive_month date|date:"Y", date|date:"m" %}" title="{{ date|date:"F Y" }}">{{ date|date:"F Y" }}</a></li>
+				  {% endfor %}
+				</ul>
+			</section>
+			<section class = "sidebar" id = "categories">
+				<header>
+					Categories:
+				</header>
+				{% get_blog_categories as categories %}
+				<ul>
+				  {% for category in categories %}
+					  <li><a href="{% url category_detail category.slug %}" title="{{ category.slug }}">{{ category.title }}</a></li>
+				  {% endfor %}
+				</ul>
+			</section>
+		</div>
+	</div>
+	<div class = "row-fluid">
+		<div class = "span12">
+			<section class = "myfooter">
+				<p>&copy; Jonathan Evans 2012</p>
+				<p>Site built in <a href ="https://www.djangoproject.com/">Django</a> using elements from <a href = "https://github.com/nathanborror/django-basic-apps">django-basic-apps</a> and <a href = "https://github.com/montylounge/django-mingus">django-mingus</a>.
+			</section>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

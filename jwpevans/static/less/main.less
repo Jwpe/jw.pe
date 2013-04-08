@@ -1,0 +1,378 @@
+@import "bootstrap/bootstrap.less";
+
+//This is where the css magic happens...
+.thumbnail {
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	//float: left;
+	margin: 10px;
+	text-indent: -9999px;
+	border-width: 0;
+	.border-radius(10px);
+	.box-shadow(0 0 20px #DDD);
+	background-size: cover;
+	.transition(all .2s ease-in-out);
+	&:hover {
+		.scale(1.1);
+		border-width: 2px;
+		border-color: #DDD;
+	}
+}
+
+.thumbnailholder {
+	width: 225px;
+	height: 225px;
+	max-width: 225px;
+	max-height: 225px;
+	float: left;
+}
+
+.main-content {
+	margin-top: 5%;
+}
+
+.big-words {
+	color: @grayLighter;
+	font-family: "Droid Sans", sans-serif;
+	h1 {
+		font-size: 60px;
+		line-height: 80px;
+		text-shadow: 0 0 3px #DDD;
+	}
+	h2 {
+		font-size: 30px;
+		line-height: 40px;
+		text-shadow: 0 0 3px #DDD;
+	}
+}
+
+#centrallinks {
+	margin-top: 10%;
+	height: 220px;
+}
+
+
+//Blog styling starts here.
+.blue {
+	color: @blue;
+}
+
+.blog {
+	border-bottom: 2px solid @grayLight;
+	font-family: "Droid Sans", sans-serif;
+	a {
+		color: @blue;
+		font-size: 14px;
+		&:hover{
+			color: @grayLighter;
+		}
+	}
+	h2 {
+		a {
+			color: @blue;
+			font-size: 42px;
+			line-height: 60px;
+			&:hover{
+				color: lighten(@grayLight, 30%);
+			}
+		}
+	}
+	.date {
+		color: @gray;
+		font-weight: 700;
+	}
+	p {
+		font-family: inherit;
+		font-size: 14px;
+	}
+}
+
+.parallelogram {
+	float: left;
+	position: relative;
+	left: 0;
+	// top: 108px;
+	top: 140px;
+    /* Skew */
+    -webkit-transform: rotate(-45deg)skew(45deg);
+    -moz-transform: rotate(-45deg)skew(45deg);
+    -o-transform: rotate(-45deg)skew(45deg);
+    transform: rotate(-45deg)skew(45deg);
+    /* Rotate */
+    -ms-transform: rotate(135deg);
+    /* Rotate Origin */
+    -webkit-transform-origin: top left;
+    -moz-transform-origin: top left;
+    -ms-transform-origin: top left;
+    -o-transform-origin: top left;
+    transform-origin: top left;
+}
+
+#parallelogram1 {
+	background: @gray;
+	width: 200px;
+	height: 40px;
+}
+
+#parallelogram2 {
+	background: @blue;
+	width: 200px;
+	height: 5px;
+}
+
+#parallelogram3 {
+	background: @grayLight;
+	width: 200px;
+	height: 20px;
+}
+header {
+	h1 {
+		font-size: 60px;
+		line-height: 100px;
+		color: @gray;
+	}
+	h2 {
+		font-size: 30px;
+		line-height: 40px;
+		color: @grayLight;
+	}
+}
+
+#header {
+	.clearfix();
+	font-family: "Droid Sans", sans-serif;
+	header {
+		position: relative;
+		h1 {
+			position: relative;
+			overflow: hidden;
+			left: 20px;
+			font-size: 60px;
+			line-height: 100px;
+			color: @gray;
+		}
+		h2 {
+			position: relative;
+			overflow: hidden;
+			left: 150px;
+			font-size: 30px;
+			line-height: 40px;
+			color: @grayLight;
+		}
+	}
+	a{
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+}
+
+.identifier {
+	margin-top: 10px;
+	float: right;
+	color: @blue;
+	p {
+		font-size: 16px;
+		font-family: "Droid Sans", sans-serif;
+	}
+}
+
+.sidebar {
+	margin-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid @grayLight;
+	font-family: "Droid Sans", sans-serif;
+	font-size: 16px;
+	header {
+		font-weight: 900;
+		padding-bottom: 5px;
+		color: @gray;
+	}
+	p {
+		font-family: "Droid Sans", sans-serif;
+		color: inherit;
+		font-size: 14px;
+	}
+	ul {
+		list-style-type:square;
+	}
+	a {
+		font-size: 14px;
+		color: @blue;
+		&:hover {
+			color: lighten(@blue, 30%);
+		}
+		&:visited{
+			color: @grayLight;
+		}
+	}
+}
+
+#twitter {
+}
+
+#archive {
+}
+
+#whoami {
+}
+
+.myfooter {
+	margin-top: 20px;
+	font-size: 12px;
+	font-family: "Droid Sans", sans-serif;
+	text-align: center;
+	p {
+		font-size: inherit;
+		font-family: inherit;
+	}
+	a {
+		color: @blue;
+		&:hover {
+			color: lighten(@blue, 30%);
+		}
+		&:visited{
+			color: @grayLight;
+		}
+	}
+}
+
+//Changes size of title elements for tablets
+@media(max-width: 767px){
+	.parallelogram {
+		top: 105px;
+		// top: 80px;
+	}
+
+	#parallelogram1 {
+		background: @gray;
+		width: 150px;
+		height: 30px;
+	}
+
+	#parallelogram2 {
+		background: @blue;
+		width: 150px;
+		height: 3px;
+	}
+
+	#parallelogram3 {
+		background: @grayLight;
+		width: 150px;
+		height: 15px;
+	}
+	#header{
+		header{
+			h1 {
+				left: 15px;
+				font-size: 45px;
+				line-height: 50px;
+				color: @gray;
+				margin-top: 25px;
+			}
+			h2 {
+				left: 105px;
+				font-size: 20px;
+				line-height: 30px;
+				color: @grayLight;
+			}
+		}
+	}
+	.identifier {
+		p {
+			font-size: 12px;
+		}
+	}
+	.blog {
+		h2 {
+			a {
+				font-size: 20px;
+				line-height: 30px;
+			}
+		}
+	}
+}
+
+//Changes size of title elements for smart phones
+@media(max-width: 480px){
+	.parallelogram {
+		top: 70px;
+		// top: 54px;
+	}
+
+	#parallelogram1 {
+		background: @gray;
+		width: 100px;
+		height: 20px;
+	}
+
+	#parallelogram2 {
+		background: @blue;
+		width: 100px;
+		height: 2px;
+	}
+
+	#parallelogram3 {
+		background: @grayLight;
+		width: 100px;
+		height: 10px;
+	}
+	#header{
+		// height: 70px;
+		header{
+			h1 {
+				left: 10px;
+				font-size: 30px;
+				line-height: 35px;
+				color: @gray;
+				margin-top: 10px;
+			}
+			h2 {
+				position: relative;
+				left: 75px;
+				font-size: 13px;
+				line-height: 20px;
+				color: @grayLight;
+			}
+		}
+	}
+	.blog {
+		h2 {
+			a {
+				font-size: 20px;
+				line-height: 30px;
+			}
+		}
+		p {
+			font-size: 12px;
+		}
+	}
+	.identifier {
+		p {
+			font-size: 10px;
+		}
+	}
+	.sidebar {
+		p {
+			font-size: 12px;
+		}
+		a {
+			font-size: 12px;
+		}
+	}
+	.myfooter {
+		font-size: 10px;
+	}
+}
+
+nav {
+	height: 30px;
+	border-bottom: 2px solid @grayLight;
+}
+
+
+// body {
+// 	background-image: url(http://subtlepatterns.com/patterns/irongrip.png);
+// }

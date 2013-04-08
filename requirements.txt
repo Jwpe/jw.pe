@@ -1,0 +1,11 @@
+Django==1.4
+South==0.7.4
+argparse==1.2.1
+django-appconf==0.5
+django-compressor==1.1.2
+django-disqus==0.4.1
+django-extensions==0.8
+django-grappelli==2.3.8
+django-tinymce==1.5.1b2
+path.py==2.2.2
+wsgiref==0.1.2
