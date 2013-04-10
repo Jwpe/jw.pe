@@ -1,13 +1,22 @@
+from django.conf import global_settings
+from django.utils.http import http_date
+
 import sys
 import os
+from time import time
+
 from path import path
-from django.conf import global_settings
+import dj_database_url
 
 PROJECT_ROOT = path(__file__).abspath().dirname().dirname()
 sys.path.insert(0, PROJECT_ROOT / 'libs')
 sys.path.insert(0, PROJECT_ROOT / 'apps')
 
-DEBUG = True
+if os.environ.get('DEVELOPMENT'):
+    DEBUG = True
+else:
+    DEBUG = False
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -41,6 +50,36 @@ USE_TZ = True
 
 DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 
+# Serving static files.
+#Amazon S3 storage settings.
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+#Queries to AWS don't need to be authenicated. They are public!
+AWS_QUERYSTRING_AUTH = False
+# The browsers won't request the static files for max_age seconds.
+# Further reading here. http://developer.yahoo.com/performance/rules.html#expires for more details.
+# Based on https://github.com/kylemacfarlane/django-cuddlybuddly-storage-s3/issues/8
+# Currently set to 5 mintues
+max_age = 60 * 5
+# Sets the header in our static files. Expires X seconds (and cache) for X seconds. X is the max_age variable.
+AWS_HEADERS = {
+    'x-amz-acl': 'public-read',
+    'Expires': http_date(time() + max_age),
+    'Cache-Control': 'public, max-age=' + str(max_age),
+    'Access-Control-Allow-Origin': '*'}
+
+#Storage Backend
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+#Causes collect static to automatically put files to s3
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' if DEBUG else 'utils.storage.CachedS3BotoStorage'
+
+COMPRESS_STORAGE = STATICFILES_STORAGE
+#Changes the URL structure of the cache from /CACHE/ to /
+COMPRESS_OUTPUT_DIR = ''
+#The new CDN base URL and update the URLs to the files in your templates which you want to compres
+COMPRESS_URL = os.environ.get('AWS_URL')
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = PROJECT_ROOT / 'public/media'
@@ -58,7 +97,7 @@ STATIC_ROOT = PROJECT_ROOT / 'public/static'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' if DEBUG else COMPRESS_URL
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -73,7 +112,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
@@ -104,8 +143,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'config.urls'
 
 #TODO: Remove this?
-# Python dotted path to the WSGI application used by Django's runserver.
-#WSGI_APPLICATION = 'config.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -136,6 +173,7 @@ INSTALLED_APPS = (
     'tinymce',
     # Project specific apps go here
     'blog',
+    'utils',
 )
 
 # A sample logging configuration. The only tangible logging
