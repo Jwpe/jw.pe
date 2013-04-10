@@ -171,6 +171,7 @@ INSTALLED_APPS = (
     'compressor',
     'disqus',
     'tinymce',
+    'gunicorn',
     # Project specific apps go here
     'blog',
     'utils',
