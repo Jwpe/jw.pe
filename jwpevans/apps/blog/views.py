@@ -2,7 +2,8 @@
 from django.views.generic import ListView
 from django.shortcuts import get_object_or_404
 
-from blog.models import Category, Post
+from blog.models import Category
+
 
 class CategoryListView(ListView):
 
@@ -11,7 +12,7 @@ class CategoryListView(ListView):
 
     def get_queryset(self):
 
-        self.category = get_object_or_404(Category, slug = self.kwargs['slug'])
+        self.category = get_object_or_404(Category, slug=self.kwargs['slug'])
         return self.category.post_set.all()
 
     def get_context_data(self, **kwargs):

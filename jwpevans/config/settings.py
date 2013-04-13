@@ -119,7 +119,7 @@ STATICFILES_FINDERS = (
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 # Needed for Grappelli
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -152,9 +152,6 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    # 'grappelli.dashboard',
-    'grappelli',
-
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -170,10 +167,10 @@ INSTALLED_APPS = (
     'django_extensions',
     'compressor',
     'disqus',
-    'tinymce',
     'gunicorn',
     # Project specific apps go here
     'blog',
+    'landing',
     'utils',
 )
 
@@ -220,19 +217,7 @@ COMPRESS_ROOT = STATIC_ROOT
 COMPRESS_CSS_FILTERS = ['compressor.filters.cssmin.CSSMinFilter']
 COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.JSMinFilter']
 
-# django-grappelli
-GRAPPELLI_ADMIN_TITLE = "Jwpevans Admin"
-
 # django-disqus
 DISQUS_API_KEY = os.environ.get('DISQUS_API_KEY')
 DISQUS_WEBSITE_SHORTNAME = 'jwpevans'
-
-# django-tinymce
-TINYMCE_DEFAULT_CONFIG = {
-'theme': "advanced",
-'relative_urls': False,
-'plugins': "paste,",
-'extended_valid_elements' : "pre[class]",
-'theme_advanced_buttons3_add' : "pastetext,pasteword,selectall,",
-'theme_advanced_blockformats': "pre,code"}
 
