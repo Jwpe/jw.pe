@@ -18,6 +18,7 @@
         {% endcompress %}
 
         {% compress js %}
+        <script type="text/javascript" src="{{ STATIC_URL }}js/vendor/custom.modernizr.js"></script>
         <script src="{{ STATIC_URL }}js/vendor/zepto.js"></script>
         <script src="{{ STATIC_URL }}js/foundation/foundation.js"></script>
         {% block javascript %}{% endblock javascript %}
@@ -43,7 +44,9 @@
               <li class="divider"></li>
               <li class="has-dropdown"><a href="#">Projects</a>
                 <ul class="dropdown">
-                  <li><a href="#">Django</a></li>
+                  <li><label>Django</label></li>
+                  <li><a href="#">Some Django Thing</a></li>
+                  <li class="divider"></li>
                 </ul>
               </li>
               <li class="divider"></li>
@@ -52,8 +55,12 @@
             </ul>
         </nav>
         <p>Hello world.</p>
-        <script src="{{ STATIC_URL }}js/foundation/foundation.topbar.js"></script>
 
+        <script src="{{ STATIC_URL }}js/foundation/foundation.topbar.js"></script>
+        <script src="{{ STATIC_URL }}js/foundation/foundation.dropdown.js"></script>
+        <script>
+          $(document).foundation();
+        </script>
     </body>
 
 </html>

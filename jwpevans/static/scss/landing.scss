@@ -1,5 +1,9 @@
-@import "foundation.scss";
 
+$dropdown-label-color: #7FFFD4;
+$topbar-dropdown-toggle-color: #7FFFD4;
+$topbar-link-font-size: emCalc(20px);
+$topbar-dropdown-toggle-size: 10px;
 $topbar-bg: #444;
 $topbar-height: 100px;
 
+@import "foundation.scss";
