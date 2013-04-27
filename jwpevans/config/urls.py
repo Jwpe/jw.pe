@@ -11,7 +11,7 @@ urlpatterns = patterns('',
 	url(r'^$', RedirectView.as_view(url='/blog/')),
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^blog/', include('blog.urls')),
+    url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^landing/', include('landing.urls')),
 )
 
