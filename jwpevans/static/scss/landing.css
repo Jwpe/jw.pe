@@ -932,7 +932,7 @@ p.lead {
 
 .subheader {
   line-height: 1.4;
-  color: #6f6f6f;
+  color: #919191;
   font-weight: 300;
   margin-top: 0.2em;
   margin-bottom: 0.5em; }
@@ -973,7 +973,7 @@ a {
 
 /* Default paragraph styles */
 p {
-  font-family: inherit;
+  font-family: "Ubuntu", sans-serif;
   font-weight: normal;
   font-size: 1em;
   line-height: 1.6;
@@ -986,17 +986,17 @@ p {
 
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-weight: bold;
   font-style: normal;
-  color: #222222;
+  color: #444444;
   text-rendering: optimizeLegibility;
   margin-top: 0.2em;
   margin-bottom: 0.5em;
   line-height: 1.2125em; }
   h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
     font-size: 60%;
-    color: #6f6f6f;
+    color: #919191;
     line-height: 0; }
 
 h1 {
@@ -1052,7 +1052,7 @@ dl {
   line-height: 1.6;
   margin-bottom: 1.25em;
   list-style-position: outside;
-  font-family: inherit; }
+  font-family: "Ubuntu", sans-serif; }
 
 /* Unordered Lists */
 ul li ul,
@@ -1105,17 +1105,17 @@ blockquote {
   blockquote cite {
     display: block;
     font-size: 0.8125em;
-    color: #555555; }
+    color: #777777; }
     blockquote cite:before {
       content: "\2014 \0020"; }
     blockquote cite a,
     blockquote cite a:visited {
-      color: #555555; }
+      color: #777777; }
 
 blockquote,
 blockquote p {
   line-height: 1.6;
-  color: #6f6f6f; }
+  color: #919191; }
 
 /* Microformats */
 .vcard {
@@ -2312,8 +2312,8 @@ form.custom {
 
 .top-bar {
   overflow: hidden;
-  height: 100px;
-  line-height: 100px;
+  height: 70px;
+  line-height: 70px;
   position: relative;
   background: #444444;
   margin-bottom: 1.875em; }
@@ -2334,11 +2334,11 @@ form.custom {
   .top-bar .title-area {
     position: relative; }
   .top-bar .name {
-    height: 100px;
+    height: 70px;
     margin: 0;
     font-size: 16px; }
     .top-bar .name h1 {
-      line-height: 100px;
+      line-height: 70px;
       font-size: 1.0625em;
       margin: 0; }
       .top-bar .name h1 a {
@@ -2346,7 +2346,7 @@ form.custom {
         color: white;
         width: 50%;
         display: block;
-        padding: 0 33.33333px; }
+        padding: 0 23.33333px; }
   .top-bar .toggle-topbar {
     position: absolute;
     right: 0;
@@ -2358,11 +2358,11 @@ form.custom {
       font-weight: bold;
       position: relative;
       display: block;
-      padding: 0 33.33333px;
-      height: 100px;
-      line-height: 100px; }
+      padding: 0 23.33333px;
+      height: 70px;
+      line-height: 70px; }
     .top-bar .toggle-topbar.menu-icon {
-      right: 33.33333px;
+      right: 23.33333px;
       top: 50%;
       margin-top: -16px;
       padding-left: 40px; }
@@ -2417,11 +2417,11 @@ form.custom {
     width: 100%;
     color: white;
     padding: 12px 0 12px 0;
-    padding-left: 33.33333px;
+    padding-left: 23.33333px;
     font-size: emCalc(20px);
     font-weight: bold;
     background: #333333;
-    height: 100px; }
+    height: 70px; }
     .top-bar-section ul li > a:hover {
       background: #2b2b2b; }
     .top-bar-section ul li > a.button {
@@ -2444,7 +2444,7 @@ form.custom {
   .top-bar-section ul li.active > a {
     background: #2b2b2b; }
   .top-bar-section .has-form {
-    padding: 33.33333px; }
+    padding: 23.33333px; }
   .top-bar-section .has-dropdown {
     position: relative; }
     .top-bar-section .has-dropdown > a:after {
@@ -2454,7 +2454,7 @@ form.custom {
       height: 0;
       border: solid 10px;
       border-color: transparent transparent transparent rgba(127, 255, 212, 0.5);
-      margin-right: 33.33333px;
+      margin-right: 23.33333px;
       margin-top: -7px;
       position: absolute;
       top: 22px;
@@ -2473,15 +2473,15 @@ form.custom {
       width: 100%; }
       .top-bar-section .dropdown li a {
         font-weight: normal;
-        padding: 8px 33.33333px; }
+        padding: 8px 23.33333px; }
       .top-bar-section .dropdown li.title h5 {
         margin-bottom: 0; }
         .top-bar-section .dropdown li.title h5 a {
           color: white;
-          line-height: 50px;
+          line-height: 35px;
           display: block; }
     .top-bar-section .dropdown label {
-      padding: 8px 33.33333px 2px;
+      padding: 8px 23.33333px 2px;
       margin-bottom: 0;
       text-transform: uppercase;
       color: aquamarine;
@@ -2540,8 +2540,8 @@ form.custom {
         .top-bar-section ul li .js-generated {
           display: none; }
     .top-bar-section li a:not(.button) {
-      padding: 0 33.33333px;
-      line-height: 100px;
+      padding: 0 23.33333px;
+      line-height: 70px;
       background: #444444; }
       .top-bar-section li a:not(.button):hover {
         background: black; }
@@ -2575,7 +2575,7 @@ form.custom {
         color: white;
         line-height: 1;
         white-space: nowrap;
-        padding: 7px 33.33333px;
+        padding: 7px 23.33333px;
         background: #515151; }
       .top-bar-section .dropdown li label {
         white-space: nowrap;
@@ -2589,12 +2589,12 @@ form.custom {
       border-right: solid 1px #5e5e5e;
       border-left: solid 1px #2b2b2b;
       clear: none;
-      height: 100px;
+      height: 70px;
       width: 0px; }
     .top-bar-section .has-form {
       background: #444444;
-      padding: 0 33.33333px;
-      height: 100px; }
+      padding: 0 23.33333px;
+      height: 70px; }
     .top-bar-section ul.right li .dropdown {
       left: auto;
       right: 0; }
@@ -3840,3 +3840,9 @@ table {
     max-width: 500px; }
   .f-dropdown.large {
     max-width: 800px; }
+
+* {
+  font-family: "Ubuntu", sans-serif; }
+
+.turquoise {
+  color: #00e598; }
