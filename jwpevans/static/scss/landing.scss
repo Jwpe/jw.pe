@@ -1,7 +1,9 @@
+// Colours
+$primary-color: #03A89E;
 
 // Navigation Bar Variables
-$dropdown-label-color: #7FFFD4;
-$topbar-dropdown-toggle-color: #7FFFD4;
+$dropdown-label-color: $primary-color;
+$topbar-dropdown-toggle-color: $primary-color;
 $topbar-link-font-size: emCalc(20px);
 $topbar-dropdown-toggle-size: 10px;
 $topbar-bg: #444;
@@ -11,13 +13,12 @@ $topbar-height: 70px;
 $header-font-family: "Ubuntu", sans-serif;
 $header-font-color: #444;
 $paragraph-font-family: "Ubuntu", sans-serif;
+$paragraph-font-color: #444;
+$anchor-font-color: $primary-color;
+
 
 @import "foundation.scss";
 
 * {
     font-family: "Ubuntu", sans-serif;
-}
-
-.turquoise {
-    color: darken(#7FFFD4, 30%);
 }

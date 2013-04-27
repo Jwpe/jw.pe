@@ -1,85 +1,28 @@
-{% load compress %}
-<!doctype html>
-<html lang="en" class="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+{% extends "base.html" %}
 
-        <title>{% block title %}{% endblock title %}</title>
-        <meta name="description" content="{%block meta_description%}{%endblock meta_description %}">
-        <meta name="author" content="{%block meta_author %}{%endblock meta_author %}">
+{% block title %}
+  Landing
+{% endblock %}
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico">
-
-        {% compress css %}
-        <link rel="stylesheet" href="{{ STATIC_URL }}scss/landing.css">
-        {% endcompress %}
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic' rel='stylesheet' type='text/css'>
-
-        {% compress js %}
-        <script type="text/javascript" src="{{ STATIC_URL }}js/vendor/custom.modernizr.js"></script>
-        <script src="{{ STATIC_URL }}js/vendor/zepto.js"></script>
-        <script src="{{ STATIC_URL }}js/foundation/foundation.js"></script>
-        {% block javascript %}{% endblock javascript %}
-        {% endcompress %}
-
-    </head>
-
-    <body>
-        <nav class="top-bar">
-          <ul class="title-area">
-            <!-- Title Area -->
-            <li class="name">
-              <h1><a href="#">JWPE</a></h1>
-            </li>
-            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-          </ul>
-          <section class="top-bar-section">
-            <!-- Left Nav Section -->
-            <ul class="left">
-              <li class="divider"></li>
-              <li class="active"><a href="#">Blog</a></li>
-              <li class="divider"></li>
-              <li class="has-dropdown"><a href="#">Projects</a>
-                <ul class="dropdown">
-                  <li><label>Django</label></li>
-                  <li><a href="#">Some Django Thing</a></li>
-                  <li class="divider"></li>
-                </ul>
-              </li>
-              <li class="divider"></li>
-              <li><a href="#">Contact</a></li>
-              <li class="divider"></li>
-            </ul>
-        </nav>
-        <div class="row">
-          <div class="small-4 small-centered columns">
-            <h1>Hello World</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="small-10 small-centered columns">
-            <p>
-              Bacon ipsum dolor sit amet swine ball tip in, spare ribs turducken tempor adipisicing culpa hamburger ad meatball dolore incididunt pariatur. Pork t-bone est dolor, reprehenderit ut anim ex short ribs sint kielbasa ea. Consequat dolore in veniam swine et eiusmod leberkas proident aliqua. Eiusmod velit turkey duis, culpa aliqua shank aute. Ex hamburger ribeye bresaola cillum commodo corned beef deserunt tenderloin drumstick boudin pig ullamco swine. Pork belly boudin pancetta culpa short loin t-bone swine, reprehenderit exercitation. Turkey sunt enim eu in aliquip.
-              <a href="#" class="turquoise">I am a link</a>
-            </p>
-            <p>
-            Irure sausage sirloin velit minim chuck biltong cillum est boudin jerky brisket tail. In eiusmod cow biltong consectetur do deserunt flank spare ribs pork chop cupidatat ut beef boudin. Excepteur consectetur esse, in filet mignon culpa non et dolore laboris. Shankle nostrud sint officia ut bresaola eu beef rump brisket incididunt. Deserunt eu tongue hamburger labore beef. Flank shankle eu ham, shank rump meatball tenderloin laboris chicken aliquip duis biltong pariatur.
-            </p>
-            <p>
-              Venison laboris ball tip nostrud irure beef pork loin swine jowl ut pork chop. Irure filet mignon short loin tail bacon ham leberkas elit occaecat ea. Salami anim jowl non aliquip. Tenderloin chuck sirloin occaecat culpa andouille mollit shoulder turkey cow kielbasa. Meatball reprehenderit cupidatat fatback esse. Sirloin venison pariatur short ribs pork loin non. Deserunt beef nulla laborum occaecat corned beef velit shoulder quis pork belly in.
-            </p>
-        </div>
+{% block content %}
+    <div class="row">
+      <div class="small-4 small-centered columns">
+        <h1>Hello World</h1>
       </div>
+    </div>
+    <div class="row">
+      <div class="small-10 small-centered columns">
+        <p>
+          Bacon ipsum dolor sit amet swine ball tip in, spare ribs turducken tempor adipisicing culpa hamburger ad meatball dolore incididunt pariatur. Pork t-bone est dolor, reprehenderit ut anim ex short ribs sint kielbasa ea. Consequat dolore in veniam swine et eiusmod leberkas proident aliqua. Eiusmod velit turkey duis, culpa aliqua shank aute. Ex hamburger ribeye bresaola cillum commodo corned beef deserunt tenderloin drumstick boudin pig ullamco swine. Pork belly boudin pancetta culpa short loin t-bone swine, reprehenderit exercitation. Turkey sunt enim eu in aliquip.
+          <a href="#">I am a link</a>
+        </p>
+        <p>
+        Irure sausage sirloin velit minim chuck biltong cillum est boudin jerky brisket tail. In eiusmod cow biltong consectetur do deserunt flank spare ribs pork chop cupidatat ut beef boudin. Excepteur consectetur esse, in filet mignon culpa non et dolore laboris. Shankle nostrud sint officia ut bresaola eu beef rump brisket incididunt. Deserunt eu tongue hamburger labore beef. Flank shankle eu ham, shank rump meatball tenderloin laboris chicken aliquip duis biltong pariatur.
+        </p>
+        <p>
+          Venison laboris ball tip nostrud irure beef pork loin swine jowl ut pork chop. Irure filet mignon short loin tail bacon ham leberkas elit occaecat ea. Salami anim jowl non aliquip. Tenderloin chuck sirloin occaecat culpa andouille mollit shoulder turkey cow kielbasa. Meatball reprehenderit cupidatat fatback esse. Sirloin venison pariatur short ribs pork loin non. Deserunt beef nulla laborum occaecat corned beef velit shoulder quis pork belly in.
+        </p>
+    </div>
+  </div>
 
-        <script src="{{ STATIC_URL }}js/foundation/foundation.topbar.js"></script>
-        <script src="{{ STATIC_URL }}js/foundation/foundation.dropdown.js"></script>
-        <script>
-          $(document).foundation();
-        </script>
-    </body>
-
-</html>
+{% endblock %}
