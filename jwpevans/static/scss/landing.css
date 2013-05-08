@@ -3843,3 +3843,19 @@ table {
 
 * {
   font-family: "Ubuntu", sans-serif; }
+
+.nav-img {
+  max-height: 32px;
+  vertical-align: middle; }
+
+.blog h1 {
+  text-align: center; }
+.blog .article-nav {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  .blog .article-nav ul {
+    list-style-type: none; }
+  .blog .article-nav .prev {
+    float: left; }
+  .blog .article-nav .next {
+    float: right; }

@@ -70,7 +70,7 @@ class Post(models.Model):
         return u'%s' % self.title
 
     def get_absolute_url(self):
-        return reverse('blog_detail', kwargs={'slug':self.slug})
+        return reverse('blog:blog_detail', kwargs={'slug':self.slug})
 
     def get_disqus_url(self):
         """

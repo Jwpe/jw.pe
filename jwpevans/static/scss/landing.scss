@@ -22,3 +22,31 @@ $anchor-font-color: $primary-color;
 * {
     font-family: "Ubuntu", sans-serif;
 }
+
+.nav-img {
+    max-height: 32px;
+    vertical-align: middle;
+}
+
+
+.blog {
+    h1 {
+        text-align: center;
+    }
+    .article-nav {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        ul {
+            list-style-type: none;
+        }
+
+        .prev {
+            float: left;
+        }
+
+        .next {
+            float: right;
+        }
+    }
+}

@@ -7,27 +7,23 @@
 {% block content %}
 	{% for post in posts %}
 		<article class ="blog">
-			<div class="row">
-      			<div class="small-6 small-centered columns">
-      				<h1>
+		    <div class="row">
+		    	<div class="small-10 small-centered columns">
+		    		<h1>
 						<a href="{{ post.get_absolute_url }}">
 							{{ post.title }}
 						</a>
 					</h1>
-		      	</div>
-		    </div>
-		    <div class="row">
-		    	<div class="small-10 small-centered columns">
 					<p>
-						<span class="date">
+						<strong>
 							{{ post.publish|date:"l, F jS, Y" }}
-						</span>
+						</strong>
 					</p>
 					<p class="tease">
 						{{ post.tease|safe }}
 					</p>
 					<p>
-						<a href="{{ post.get_absolute_url }}" class="turquoise"> Read more
+						<a href="{{ post.get_absolute_url }}"> Read more
 						</a>
 					</p>
 				</div>

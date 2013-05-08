@@ -7,62 +7,61 @@
 {% endblock %}
 
 {% block content %}
-	<article class ="blog">
-	    <div class="row">
-	    	<div class="small-10 small-centered columns">
-	    		<h1>
-					<a href="{{ post.get_absolute_url }}">
-						{{ post.title }}
-					</a>
-				</h1>
-				<p>
-					<span class="date">
-						{{ post.publish|date:"l, F jS, Y" }}
-					</span>
-				</p>
-				<div>
-					{{ post.body|safe }}
-				</div>
-			</div>
-		</div>
-		<div class="row">
-	    	<div class="small-10 small-centered columns">
-				<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			</div>
-		</div>
-		<div class="row">
-	    	{% if post.get_previous_by_publish %}
-	    		<div class="small-5 small-offset-1 columns">
-	    			<a href="{{ object.get_previous_post.get_absolute_url }}">
-	    				<dl>
-	    				<dt> ← Prev </dt>
-	    				<dd> {{ post.get_previous_post }} </dd>
-	    				</dl>
-	    			</a>
-	    		</div>
-	    	{% endif %}
-	    	{% if post.get_next_by_publish %}
-	    		<div class="small-5 columns">
-	    			<a class="next" href="{{ object.get_next_post.get_absolute_url }}">	
-	    				<dl>
-	    				<dt> Next → </dt> 
-	    				<dd> {{ post.get_next_post }}
-	    				</dd>
-	    				</dl>
-	    			</a> 
-	    		</div>
-	    	{% endif %}
-		</div>
-		<div class="row">
-	    	<div class="small-10 small-centered columns">
-			    {% if post.allow_comments %}
-						{% load disqus_tags %}
-						{% disqus_dev %}
-						{% set_disqus_identifier post.slug %}
-						{% disqus_show_comments %}
-				{% endif %}
-			</div>
-		</div>
-	</article>
+    <article class ="blog">
+        <div class="row">
+            <div class="small-10 small-centered columns">
+                <h1>
+                    <a href="{{ post.get_absolute_url }}">
+                        {{ post.title }}
+                    </a>
+                </h1>
+                <p>
+                    <strong>
+                        {{ post.publish|date:"l, F jS, Y" }}
+                    </strong>
+                </p>
+                <div>
+                    {{ post.body|safe }}
+                </div>
+                <div class="article-nav">
+                    {% if post.get_previous_by_publish %}
+                    <div class="prev">
+                        <a href="{{ object.get_previous_post.get_absolute_url }}">
+                            <ul>
+                                <li>← Prev</li>
+                                <li>{{ post.get_previous_post }}</li>
+                            </ul>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if post.get_next_by_publish %}
+                    <div class="next">
+                        <a href="{{ object.get_next_post.get_absolute_url }}">
+                            <ul> 
+                                <li>Next →</li>
+                                <li>{{ post.get_next_post }}</li>
+                            </ul>
+                        </a> 
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-10 small-centered columns">
+                <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+        </div>
+        {% if post.allow_comments %}
+        <div class="row">
+            <div class="small-10 small-centered columns">
+                {% load disqus_tags %}
+                {% disqus_dev %}
+                {% set_disqus_identifier post.slug %}
+                {% disqus_show_comments %}
+            </div>
+        </div>
+        {% endif %}
+    </article>
 {% endblock %}
