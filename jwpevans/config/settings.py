@@ -19,6 +19,8 @@ else:
 
 TEMPLATE_DEBUG = DEBUG
 
+ALLOWED_HOSTS = ['jwpevans.s3.amazonaws.com']
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
