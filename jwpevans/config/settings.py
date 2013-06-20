@@ -204,7 +204,9 @@ LOGGING = {
     }
 }
 
-TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ()
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    'utils.processors.live',
+)
 
 STATICFILES_FINDERS = global_settings.STATICFILES_FINDERS + (
     'compressor.finders.CompressorFinder',
