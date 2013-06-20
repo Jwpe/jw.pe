@@ -19,7 +19,7 @@ else:
 
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['jwpevans.herokuapp.com']
+ALLOWED_HOSTS = ['jwpevans.herokuapp.com', '.jw.pe']
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
