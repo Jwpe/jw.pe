@@ -5,16 +5,13 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils import timezone
-from django.utils.safestring import mark_safe
 from django.utils.text import truncate_words
 from django.utils.translation import ugettext_lazy as _
 
-
 from blog.managers import PublicManager
 
-import datetime
-
 from tinymce import models as tinymce_models
+
 
 class Category(models.Model):
     """Category model."""
@@ -30,10 +27,8 @@ class Category(models.Model):
     def __unicode__(self):
         return u'%s' % self.title
 
-
-    @models.permalink
     def get_absolute_url(self):
-        return ('blog_category', None, {'slug': self.slug})
+        return reverse('blog:category_detail', kwargs={'slug': self.slug})
 
 
 class Post(models.Model):

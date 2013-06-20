@@ -49,4 +49,21 @@ $anchor-font-color: $primary-color;
             float: right;
         }
     }
+    .post-body {
+        line-height: 1.6;
+    }
 }
+
+.category {
+    background-color: $primary-color;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    color: #FFF;
+    line-height: 36px;
+}
+
+#share-bar{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+

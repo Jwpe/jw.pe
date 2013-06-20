@@ -7,7 +7,7 @@ from blog.models import Category
 
 class CategoryListView(ListView):
 
-    context_object_name = "category_posts"
+    context_object_name = "posts"
     template_name = "blog/category_detail.html"
 
     def get_queryset(self):

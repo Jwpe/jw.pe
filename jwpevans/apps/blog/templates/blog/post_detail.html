@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %} {{ post.title }} {% endblock %}
+{% block title %} - {{ post.title }} {% endblock %}
 
 {% block meta %}
     <meta name='description' content='{{post.tease}}'>
@@ -20,7 +20,7 @@
                         {{ post.publish|date:"l, F jS, Y" }}
                     </strong>
                 </p>
-                <div>
+                <div class="post-body">
                     {{ post.body|safe }}
                 </div>
                 <div class="article-nav">
@@ -37,29 +37,54 @@
                     {% if post.get_next_by_publish %}
                     <div class="next">
                         <a href="{{ object.get_next_post.get_absolute_url }}">
-                            <ul> 
+                            <ul>
                                 <li>Next →</li>
                                 <li>{{ post.get_next_post }}</li>
                             </ul>
-                        </a> 
+                        </a>
                     </div>
                     {% endif %}
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="share-bar">
             <div class="small-10 small-centered columns">
-                <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                <div class="row">
+                    <div class="small-4 columns">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-via="jwpe" data-dnt="true" data-count="vertical">
+                            Tweet
+                        </a>
+                        <script>
+                            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+                        </script>
+                    </div>
+                    <div class="small-8 columns" style="text-align:right;">
+                        <h4>
+                            More posts about:
+                        </h4>
+                        {% for category in post.categories.all %}
+                            <a class="category" href="{{ category.get_absolute_url }}">{{ category.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
         {% if post.allow_comments %}
         <div class="row">
             <div class="small-10 small-centered columns">
-                {% load disqus_tags %}
-                {% disqus_dev %}
-                {% set_disqus_identifier post.slug %}
-                {% disqus_show_comments %}
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_shortname = 'jwpevans';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>
+                    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+                </noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
             </div>
         </div>
         {% endif %}

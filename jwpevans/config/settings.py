@@ -168,7 +168,6 @@ INSTALLED_APPS = (
     'south',
     'django_extensions',
     'compressor',
-    'disqus',
     'gunicorn',
     # Project specific apps go here
     'blog',

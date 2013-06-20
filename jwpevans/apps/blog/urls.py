@@ -18,19 +18,19 @@ urlpatterns = patterns('',
     #Returns the blog posts for a certain day
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{1,2})/$',
         DayArchiveView.as_view(model=Post, paginate_by=5,
-            context_object_name="post", month_format='%m',
+            context_object_name="posts", month_format='%m',
             date_field='publish'), name="blog_archive_day"),
     #Returns the blog posts for a certain month
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/$',
         MonthArchiveView.as_view(model=Post, paginate_by=5,
-            context_object_name="post",month_format='%m',
+            context_object_name="posts",month_format='%m',
             date_field='publish', allow_empty=True),
         name="blog_archive_month"),
     #Returns the blog posts for a certain year
     url(r'^(?P<year>\d{4})/$',
         YearArchiveView.as_view(model=Post, date_field='publish',
             allow_empty=True), name="blog_archive_year"),
-    #Retruns the blog posts for a certain category
+    #Returns the blog posts for a certain category
     url(r'^categories/(?P<slug>[-\w]+)/$',
         CategoryListView.as_view(allow_empty=True, paginate_by=5),
         name="category_detail"),

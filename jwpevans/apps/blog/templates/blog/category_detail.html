@@ -1,53 +1,15 @@
-{% extends "blog/blog_base.html" %}
+{% extends "base.html" %}
 
-{% block meta %}
-	<meta name = 'description' content = 'Blogs by Jonathan Evans on web development, life and various other subjects.'>
+{% block title %} - Posts about {{category.title }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="small-12 columns">
+            <h3>
+                Posts about {{category.title }}:
+            </h3>
+        </div>
+    </div>
+    {% include 'blog/blog_tease_list.html' %}
 {% endblock %}
 
-{% block blog %}
-	<h1> Posts about {{ category.title }}</h1>
-	{% for post in category_posts %}
-		<div class = "dividerTop">
-		</div>
-
-		<article class ="blog">
-
-			<h2 class="title">
-				<a href="{{ post.get_absolute_url }}">{{ post.title }}
-				</a>
-			</h2>
-			<p>
-				<span class="date">
-					{{ post.publish|date:"l, F jS, Y" }}
-				</span>
-			</p>
-			<p class="tease">
-				{{ post.tease|safe }}
-			</p>
-			<p>
-				<a href="{{ post.get_absolute_url }}"> Read more
-				</a>
-			</p>
-		</article>
-
-		<div class = "dividerBottom">
-		</div>
-
-	{% endfor %}
-
-	{% if is_paginated %}
-	<p class="pagination">
-		{% if has_next %}
-			<a class="older" href="?page={{ next }}"> 
-				Older
-			</a>
-		{% endif %}
-		{% if has_next and has_previous %} | {% endif %}
-		{% if has_previous %}
-			<a class="newer" href="?page={{ previous }}">
-				Newer
-			</a>
-		{% endif %}
-	</p>
-	{% endif %}
-{% endblock %}

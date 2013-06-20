@@ -1,0 +1,25 @@
+{% for post in posts %}
+    <article class ="blog">
+        <div class="row">
+            <div class="small-10 small-centered columns">
+                <h1>
+                    <a href="{{ post.get_absolute_url }}">
+                        {{ post.title }}
+                    </a>
+                </h1>
+                <p>
+                    <strong>
+                        {{ post.publish|date:"l, F jS, Y" }}
+                    </strong>
+                </p>
+                <p class="tease">
+                    {{ post.tease|safe }}
+                </p>
+                <p>
+                    <a href="{{ post.get_absolute_url }}"> Read more
+                    </a>
+                </p>
+            </div>
+        </div>
+    </article>
+{% endfor %}
