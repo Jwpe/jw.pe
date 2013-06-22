@@ -5,6 +5,6 @@ from django.views.generic import TemplateView
 urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name="landing/landing.html"),
         name="landing"),
-    url(r'^contact/$', TemplateView.as_view(
+    url(r'^about/$', TemplateView.as_view(
         template_name='landing/about.html'), name='about'),
 )
