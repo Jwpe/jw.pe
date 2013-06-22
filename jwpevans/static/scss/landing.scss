@@ -11,9 +11,9 @@ $topbar-height: 70px;
 
 // Text Variables
 $header-font-family: "Ubuntu", sans-serif;
-$header-font-color: #444;
+$header-font-color: #222;
 $paragraph-font-family: "Ubuntu", sans-serif;
-$paragraph-font-color: #444;
+$paragraph-font-color: #222;
 $anchor-font-color: $primary-color;
 
 
@@ -23,16 +23,28 @@ $anchor-font-color: $primary-color;
     font-family: "Ubuntu", sans-serif;
 }
 
+h1 {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    font-size: 10;
+    margin: 50px 0 20px 0;
+}
+
 .nav-img {
     max-height: 32px;
     vertical-align: middle;
 }
 
+.nav-shadow {
+    box-shadow: 0px 5px 5px darken(#FFF, 20%);
+}
+
 
 .blog {
-    h1 {
-        text-align: center;
-    }
+    color: $paragraph-font-color;
     .article-nav {
         padding-top: 20px;
         padding-bottom: 20px;
@@ -55,11 +67,17 @@ $anchor-font-color: $primary-color;
 }
 
 .category {
-    background-color: $primary-color;
-    padding: 5px 5px 5px 5px;
+    color: #222;
+    background-color: #FFF;
+    padding: 0px 5px 0px 5px;
+    margin: 5px 0px 5px 0px;
     border-radius: 5px;
-    color: #FFF;
     line-height: 36px;
+    transition: color 0.3s;
+    display: inline-block;
+    &:hover {
+        color: #777;
+    }
 }
 
 #share-bar{
@@ -67,3 +85,24 @@ $anchor-font-color: $primary-color;
     padding-bottom: 20px;
 }
 
+#jwpe {
+    span {
+        color: $primary-color;
+    }
+}
+
+.green-inset {
+    background-color: $primary-color;
+    box-shadow: inset 0px 5px 5px darken($primary-color, 7%), inset 0px -5px 5px darken($primary-color, 7%);
+    margin: 20px 0 20px 0;
+    a {
+        color: #222;
+        &:hover {
+            color: #444;
+        }
+    }
+}
+
+#about-img {
+    min-height: 250px;
+}

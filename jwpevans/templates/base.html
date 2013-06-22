@@ -29,11 +29,11 @@
     </head>
 
     <body>
-        <nav class="top-bar">
+        <nav class="top-bar nav-shadow">
           <ul class="title-area">
             <!-- Title Area -->
             <li class="name">
-              <h1><a href="#">JWPE</a></h1>
+              <h1><a id="jwpe" href="{% url 'blog:blog_index' %}">JW<span>.</span>PE</a></h1>
             </li>
             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
             <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -42,12 +42,12 @@
             <!-- Left Nav Section -->
             <ul class="left">
               <li class="divider"></li>
-              <li class="active"><a href="{% url 'blog:blog_index' %}">Blog</a></li>
+              <li><a href="{% url 'blog:blog_index' %}">Blog</a></li>
               <li class="divider"></li>
               <li><a href="#">Projects</a>
               </li>
               <li class="divider"></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="{% url 'landing:about' %}">About</a></li>
               <li class="divider"></li>
             </ul>
           </section>
@@ -71,7 +71,9 @@
 
         </nav>
         {% block content %}{% endblock content %}
-
+        <footer>
+          &copy; Jonathan Evans 2012-13
+        </footer>
         <script src="{{ STATIC_URL }}js/foundation/foundation.topbar.js"></script>
         <script src="{{ STATIC_URL }}js/foundation/foundation.dropdown.js"></script>
         <script>
