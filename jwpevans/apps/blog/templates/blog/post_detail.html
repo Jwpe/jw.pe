@@ -2,8 +2,12 @@
 
 {% block title %} - {{ post.title }} {% endblock %}
 
-{% block meta %}
-    <meta name='description' content='{{post.tease}}'>
+{% block meta_description %}
+    {{ post.tease }}
+{% endblock %}
+
+{% block meta_author %}
+    Jonathan Evans
 {% endblock %}
 
 {% block content %}
