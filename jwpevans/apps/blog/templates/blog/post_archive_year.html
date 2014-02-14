@@ -7,22 +7,29 @@
 	<div class="row">
 		<div class="small-12 columns">
 			<h3>
-				Posts from {{ year.year }}:
+				{% if date_list %}
+					Posts from {{ year.year }}:
+				{% else %}
+					No posts from {{ year.year }}
+				{% endif %}
 			</h3>
   		</div>
     </div>
-    <div class="row">
-		<div class="small-12 columns">
-			<ul class="no-bullet">
-				{% for month in date_list %}
-				<li>
-					<h1>
-						<a href="{% url 'blog:blog_archive_month' year.year month|date:'m' %}">
-							{{ month|date:"F" }}
-						</a>
-					</h1>
-				</li>
-				{% endfor %}
-			</ul>
-	</div>
+    {% if date_list %}
+	    <div class="row">
+			<div class="small-12 columns">
+				<ul class="no-bullet">
+					{% for month in date_list %}
+					<li>
+						<h1>
+							<a href="{% url 'blog:blog_archive_month' year.year month|date:'m' %}">
+								{{ month|date:"F" }}
+							</a>
+						</h1>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	{% endif %}
 {% endblock %}

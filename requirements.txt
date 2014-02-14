@@ -2,15 +2,13 @@ Django==1.5.1
 South==0.7.4
 argparse==1.2.1
 boto==2.8.0
-distribute==0.6.24
 dj-database-url==0.2.1
 django-appconf==0.5
 django-compressor==1.1.2
 django-disqus==0.4.1
 django-extensions==0.8
-django-grappelli==2.3.8
 django-storages==1.1.8
-django-tinymce==1.5.1b2
+django-tinymce
 gevent==0.13.8
 greenlet==0.4.0
 gunicorn==0.17.2

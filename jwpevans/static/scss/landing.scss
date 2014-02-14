@@ -27,6 +27,10 @@ h1 {
     text-align: center;
 }
 
+h3 {
+    text-align: center;
+}
+
 footer {
     text-align: center;
     font-size: 10;
@@ -105,4 +109,9 @@ footer {
 
 #about-img {
     min-height: 250px;
+}
+
+/*Controls the style of the paginator*/
+.paginator {
+    text-align: center;
 }
