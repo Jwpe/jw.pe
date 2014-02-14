@@ -172,6 +172,7 @@ INSTALLED_APPS = (
     # Project specific apps go here
     'blog',
     'landing',
+    'projects',
     'utils',
 )
 

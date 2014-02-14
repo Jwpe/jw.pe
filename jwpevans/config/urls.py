@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^landing/', include('landing.urls', namespace='landing')),
+    url(r'^projects/', include('projects.urls', namespace='projects')),
 )
 
 urlpatterns += staticfiles_urlpatterns()
