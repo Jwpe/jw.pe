@@ -28,14 +28,14 @@
         <div class="row">
             <div class="small-10 small-centered columns">
                 <h3>Dear Hannah, Happy <span class='valentines'>Valentine's Day</span></h3>
-                <p>{{ pun.make_template|safe }}</p>
+                <h3>{{ pun.make_template|safe }}</h3>
                 <img src="{{ pun.url }}" />
             </div>
         <div>
         <div class="row">
             <div class="small-10 small-centered columns">
-                <a href="{% url 'projects:valentines' %}" class="valentines">
-                    <h3>Ouch, show me another...</h3>
+                <a href="{% url 'projects:valentines' %}">
+                    <h3 class="valentines">Ouch, show me another...</h3>
                 </a>
             </div>
         <div>
