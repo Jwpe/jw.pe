@@ -3843,11 +3843,6 @@ table {
 * {
   font-family: "Ubuntu", sans-serif; }
 
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
-
 h1 {
   text-align: center; }
 
@@ -3916,3 +3911,8 @@ footer {
 
 .valentines {
   color: #E61561; }
+
+.centered-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }

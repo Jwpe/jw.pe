@@ -23,11 +23,6 @@ $anchor-font-color: $primary-color;
     font-family: "Ubuntu", sans-serif;
 }
 
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 h1 {
     text-align: center;
@@ -125,4 +120,10 @@ footer {
 // Valentine's Day special
 .valentines {
     color: #E61561;
+}
+
+.centered-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
