@@ -3906,6 +3906,8 @@ footer {
 #about-img {
   min-height: 250px; }
 
-/*Controls the style of the paginator*/
 .paginator {
   text-align: center; }
+
+.valentines {
+  color: #E61561; }

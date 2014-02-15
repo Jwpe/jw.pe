@@ -1,0 +1,38 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>Happy Valentine's Day</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico">
+
+        <link rel="stylesheet" href="{{ STATIC_URL }}scss/landing.css">
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic' rel='stylesheet' type='text/css'>
+
+        <script type="text/javascript" src="{{ STATIC_URL }}js/vendor/custom.modernizr.js"></script>
+        <script src="{{ STATIC_URL }}js/vendor/zepto.js"></script>
+        <script src="{{ STATIC_URL }}js/foundation/foundation.js"></script>
+
+    </head>
+
+    <body>
+        <div class="row">
+            <div class="small-10 small-centered columns">
+                <h3>Dear Hannah, Happy <span class='valentines'>Valentine's Day</span>!<h3>
+                <p>{{ pun.make_template|safe }}</p>
+                <img src="{{ pun.url }}">
+                <a href="{% url 'projects:valentines' %}" class="valentines">
+                    Ouch, show me another...
+                </a>
+            </div>
+        <div>
+    </body>
