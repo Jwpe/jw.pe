@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load markdown_filter %}
 
 {% block title %} - {{ post.title }} {% endblock %}
 
@@ -25,7 +26,7 @@
                     </strong>
                 </p>
                 <div class="post-body">
-                    {{ post.body|safe }}
+                    {{ post.body|markdownify|safe }}
                 </div>
                 <div class="article-nav">
                     {% if post.get_previous_by_publish %}
