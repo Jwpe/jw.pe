@@ -25,6 +25,8 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+ADMIN_URL = os.environ.get('ADMIN_URL')
+
 MANAGERS = ADMINS
 
 # Local time zone for this installation. Choices can be found here:
@@ -158,6 +160,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
