@@ -1,8 +1,10 @@
-# Create your views here.
-from django.views.generic import ListView
+from django.contrib.auth.models import User
+from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404
+from django.utils.text import slugify
+from django.views.generic import ListView
 
-from blog.models import Category
+from blog.models import Post, Category
 
 
 class CategoryListView(ListView):
@@ -21,3 +23,37 @@ class CategoryListView(ListView):
         # Add in the category
         context['category'] = self.category
         return context
+
+
+def process_draft_post(request):
+
+    if request.method == 'POST':
+        data = request.POST.get('payload')
+        if data:
+            try:
+                draft_id = data['id']
+                title = data['name']
+                body = data['content']
+            except KeyError:
+                return
+            try:
+                post = Post.objects.get(draft_id=draft_id)
+            except Post.DoesNotExist:
+                post = Post(draft_id=draft_id)
+
+            author = User.objects.get(username='Jonathan')
+
+            post.title = title
+            post.slug = slugify(title)
+            post.body = body
+            post.tease = body[:200] + '...'
+            post.author = author
+
+            post.save()
+
+            response = HttpResponse()
+            response['location'] = post.get_absolute_url()
+
+            return response
+
+    raise Http404
