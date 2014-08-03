@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils.text import slugify
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView
 
 from blog.models import Post, Category
@@ -25,6 +26,7 @@ class CategoryListView(ListView):
         return context
 
 
+@csrf_exempt()
 def process_draft_post(request):
 
     if request.method == 'POST':
