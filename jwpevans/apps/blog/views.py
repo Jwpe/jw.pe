@@ -27,33 +27,37 @@ class CategoryListView(ListView):
         context['category'] = self.category
         return context
 
-@csrf_exempt()
+
+def create_post(data):
+
+    draft_id = data.get('id')
+    try:
+        post = Post.objects.get(draft_id=draft_id)
+    except Post.DoesNotExist:
+        post = Post(draft_id=draft_id)
+
+    title = data.get('name')
+    body = data.get('content')
+
+    author = User.objects.get(username='Jonathan')
+
+    post.title = title
+    post.slug = slugify(title.decode())
+    post.body = body
+    post.tease = body[:200] + '...'
+    post.author = author
+
+    post.save()
+
+    return post
+
+
 def process_draft_post(request):
 
     if request.method == 'POST':
-        data = json.loads(request.raw_post_data)
+        data = json.loads(request.body)
         if data:
-            try:
-                draft_id = data['id']
-                title = data['name']
-                body = data['content']
-            except KeyError:
-                return
-            try:
-                post = Post.objects.get(draft_id=draft_id)
-            except Post.DoesNotExist:
-                post = Post(draft_id=draft_id)
-
-            author = User.objects.get(username='Jonathan')
-
-            post.title = title
-            post.slug = slugify(title.decode())
-            post.body = body
-            post.tease = body[:200] + '...'
-            post.author = author
-
-            post.save()
-
+            post = create_post(data=data)
             response = HttpResponse()
             response['location'] = post.get_absolute_url()
 
