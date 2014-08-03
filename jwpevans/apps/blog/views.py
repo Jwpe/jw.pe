@@ -27,7 +27,7 @@ class CategoryListView(ListView):
         context['category'] = self.category
         return context
 
-
+@csrf_exempt()
 def process_draft_post(request):
 
     if request.method == 'POST':
