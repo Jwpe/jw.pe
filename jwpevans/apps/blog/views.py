@@ -5,6 +5,8 @@ from django.utils.text import slugify
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView
 
+import json
+
 from blog.models import Post, Category
 
 
@@ -26,11 +28,10 @@ class CategoryListView(ListView):
         return context
 
 
-@csrf_exempt()
 def process_draft_post(request):
 
     if request.method == 'POST':
-        data = request.POST.get('payload')
+        data = json.loads(request.raw_post_data)
         if data:
             try:
                 draft_id = data['id']

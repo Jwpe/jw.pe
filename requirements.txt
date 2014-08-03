@@ -15,3 +15,4 @@ path.py==2.2.2
 psycopg2==2.5
 wsgiref==0.1.2
 markdown==2.4
+mock==1.0.1
