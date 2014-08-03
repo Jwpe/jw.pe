@@ -46,7 +46,7 @@ def process_draft_post(request):
             author = User.objects.get(username='Jonathan')
 
             post.title = title
-            post.slug = slugify(title)
+            post.slug = slugify(title.decode())
             post.body = body
             post.tease = body[:200] + '...'
             post.author = author
