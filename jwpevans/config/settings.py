@@ -216,7 +216,8 @@ STATICFILES_FINDERS = global_settings.STATICFILES_FINDERS + (
     'compressor.finders.CompressorFinder',
 )
 
-
+# App environment variables
+DRAFT_POST_URL = os.environ.get('DRAFT_POST_URL')
 # Third-party app settings
 
 # django-compressor

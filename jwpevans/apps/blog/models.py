@@ -1,13 +1,12 @@
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse
 from django.db import models
-from django.template.defaultfilters import slugify
 from django.utils import timezone
 from django.utils.text import truncate_words
 
 from blog.managers import PublicManager
+
 
 class Category(models.Model):
     """Category model."""
@@ -34,6 +33,8 @@ class Post(models.Model):
         (1, 'Draft'),
         (2, 'Public'),
     )
+    # Draft ID to identify posts from draft
+    draft_id = models.IntegerField(blank=True, null=True)
 
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique_for_date='publish')
@@ -62,15 +63,7 @@ class Post(models.Model):
         return u'{}'.format(self.title)
 
     def get_absolute_url(self):
-        return reverse('blog:blog_detail', kwargs={'slug':self.slug})
-
-    def get_disqus_url(self):
-        """
-        Necessary because django-disqus doesn't seem to automatically
-        add the site to absolute urls. This could be because it's in
-        development mode, however.
-        """
-        return ''.join(settings.SITE_DOMAIN, '/blog/post/', self.slug)
+        return reverse('blog:blog_detail', kwargs={'slug': self.slug})
 
     def get_previous_post(self):
         return self.get_previous_by_publish(status__gte=2)
@@ -89,13 +82,10 @@ class LatestEntriesFeed(Feed):
     description = "Insert description here."
 
     def items(self):
-        return Post.objects.filter(
-        status = 2,
-        ).order_by('-publish')[:5]
+        return Post.objects.filter(status=2).order_by('-publish')[:10]
 
     def item_title(self, item):
         return item.title
 
     def item_description(self, item):
-        description = (item.tease + "...")
-        return description
+        return item.tease + "..."

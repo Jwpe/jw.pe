@@ -1,8 +1,9 @@
-from django.conf.urls.defaults import patterns, url
+from django.conf import settings
+from django.conf.urls import patterns, url
 from django.views.generic import (ListView, DetailView, DayArchiveView,
     MonthArchiveView, YearArchiveView)
 
-from blog.views import CategoryListView
+from blog.views import CategoryListView, process_draft_post
 from blog.models import Post, LatestEntriesFeed
 
 urlpatterns = patterns('',
@@ -23,7 +24,7 @@ urlpatterns = patterns('',
     #Returns the blog posts for a certain month
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/$',
         MonthArchiveView.as_view(model=Post, paginate_by=5,
-            context_object_name="posts",month_format='%m',
+            context_object_name="posts", month_format='%m',
             date_field='publish', allow_empty=True),
         name="blog_archive_month"),
     #Returns the blog posts for a certain year
@@ -36,4 +37,7 @@ urlpatterns = patterns('',
         name="category_detail"),
     #RSS URL
     url(r'rss/$', LatestEntriesFeed()),
+    # Draft post URL
+    url(r'^{}/'.format(settings.DRAFT_POST_URL), process_draft_post,
+        name='process_draft_post'),
 )
