@@ -51,11 +51,12 @@ def create_post(data):
 
     return post
 
+
 @csrf_exempt
 def process_draft_post(request):
 
     if request.method == 'POST':
-        data = json.loads(request.body)
+        data = json.loads(request.POST.get('payload'))
         if data:
             post = create_post(data=data)
             response = HttpResponse()

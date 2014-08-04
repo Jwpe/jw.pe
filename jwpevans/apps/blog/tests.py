@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
-
 import json
 import mock
 
@@ -49,3 +48,4 @@ class MarkdownTestCase(TestCase):
         self.assertEqual(1, post.draft_id)
         self.assertEqual("Wooooo", post.body)
         self.assertEqual("Wooooo...", post.tease)
+        self.assertEqual('/blog/post/test-post/', post.get_absolute_url())
