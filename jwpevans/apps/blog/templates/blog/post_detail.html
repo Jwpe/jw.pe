@@ -11,6 +11,10 @@
     Jonathan Evans
 {% endblock %}
 
+{% block javascript %}
+    <link href="themes/prism.css" rel="stylesheet" />
+{% endblock}
+
 {% block content %}
     <article class ="blog">
         <div class="row">
@@ -90,4 +94,5 @@
         </div>
         {% endif %}
     </article>
+    <script src="prism.js"></script>
 {% endblock %}
