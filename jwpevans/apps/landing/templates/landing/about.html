@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="small-10 small-centered columns">
+        <div class="small-12 small-centered columns white-box">
             <h1>Hello!</h1>
             <p>
                 I'm Jon. I am a software developer, gainfully employed at Closed Loop Labs. My professional interests include Django, Python, JavaScript, and mastering all aspects of the web stack. Outside of work, I enjoy reading fiction, cycling my road bike, drinking tea and writing about programming. The opinons expressed here are mine and mine alone.
@@ -14,24 +14,20 @@
         </div>
     </div>
     <div class="green-inset">
-        <div class="row">
-            <div class="small-10 small-centered columns">
-                <div class="row">
-                    <div class="large-6 small-12 columns">
-                        <img src="{{STATIC_URL}}images/jon.jpg">
-                    </div>
-                    <div class="large-6 small-12 columns">
-                        <br>
-                        <h4>Contact me:</h4>
-                        <a class="category" href="https://twitter.com/jwpe">@jwpe</a>
-                        <a class="category">jwpevans at gmail</a>
-                        <a class="category" href="https://stackoverflow.com/users/1423558/jonathan-evans">Jonathan Evans at SO</a>
-                        <a class="category" href="https://uk.linkedin.com/in/jwpevans">jwpevans on LinkedIn</a>
-                        <a class="category" href="https://github.com/Jwpe/CV">Curriculum Vitae</a>
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+        <div class="large-6 small-12 columns" id="about-img">
+            <img src="{{STATIC_URL}}images/jon.jpg">
         </div>
+        <div class="large-6 small-12 columns" id="contact">
+            <br>
+            <h4>Contact me:</h4>
+            <a class="category" href="https://twitter.com/jwpe">@jwpe</a>
+            <a class="category">jwpevans at gmail</a>
+            <a class="category" href="https://stackoverflow.com/users/1423558/jonathan-evans">Jonathan Evans at SO</a>
+            <a class="category" href="https://uk.linkedin.com/in/jwpevans">jwpevans on LinkedIn</a>
+            <a class="category" href="https://github.com/Jwpe/CV">Curriculum Vitae</a>
+        </div>
+    </div>
     </div>
   </div>
 

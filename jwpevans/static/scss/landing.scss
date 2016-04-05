@@ -23,6 +23,9 @@ $anchor-font-color: $primary-color;
     font-family: "Ubuntu", sans-serif;
 }
 
+body {
+    background-color: darken(white, 5%);
+}
 
 h1 {
     text-align: center;
@@ -38,36 +41,51 @@ footer {
     margin: 50px 0 20px 0;
 }
 
+.name {
+    h1 {
+        text-align: left;
+    }
+}
+
 .nav-img {
     max-height: 32px;
     vertical-align: middle;
 }
 
-.nav-shadow {
-    box-shadow: 0px 5px 5px darken(#FFF, 20%);
-}
-
-
 .blog {
     color: $paragraph-font-color;
-    .article-nav {
-        padding-top: 20px;
-        padding-bottom: 20px;
-
-        ul {
-            list-style-type: none;
-        }
-
-        .prev {
-            float: left;
-        }
-
-        .next {
-            float: right;
-        }
-    }
     .post-body {
         line-height: 1.6;
+    }
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    margin: 10px 0 10px 0;
+    padding: 0 20px 0 20px;
+}
+
+.white-box {
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    margin: 10px 0 10px 0;
+    padding: 0 20px 0 20px;
+}
+
+.article-nav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    ul {
+        list-style-type: none;
+    }
+
+    .prev {
+        float: left;
+    }
+
+    .next {
+        float: right;
     }
 }
 
@@ -76,6 +94,7 @@ footer {
     background-color: #FFF;
     padding: 0px 5px 0px 5px;
     margin: 5px 0px 5px 0px;
+    border: 1px solid #DDD;
     border-radius: 5px;
     line-height: 36px;
     transition: color 0.3s;
@@ -98,7 +117,6 @@ footer {
 
 .green-inset {
     background-color: $primary-color;
-    box-shadow: inset 0px 5px 5px darken($primary-color, 7%), inset 0px -5px 5px darken($primary-color, 7%);
     margin: 20px 0 20px 0;
     a {
         color: #222;
@@ -109,7 +127,15 @@ footer {
 }
 
 #about-img {
-    min-height: 250px;
+    img {
+        min-height: 400px;
+    }
+    line-height: 0;
+    padding: 0 0 0 0;
+}
+
+#contact {
+    padding-bottom: 15px;
 }
 
 // Controls the style of the paginator
@@ -126,4 +152,13 @@ footer {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#disqus_thread{
+    padding-bottom: 20px;
+}
+
+#more-posts {
+    padding-right: 20px;
+    text-align:right;
 }

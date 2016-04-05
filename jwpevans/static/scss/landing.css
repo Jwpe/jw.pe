@@ -3843,6 +3843,9 @@ table {
 * {
   font-family: "Ubuntu", sans-serif; }
 
+body {
+  background-color: #f2f2f2; }
+
 h1 {
   text-align: center; }
 
@@ -3854,32 +3857,46 @@ footer {
   font-size: 10;
   margin: 50px 0 20px 0; }
 
+.name h1 {
+  text-align: left; }
+
 .nav-img {
   max-height: 32px;
   vertical-align: middle; }
 
-.nav-shadow {
-  box-shadow: 0px 5px 5px #cccccc; }
-
 .blog {
-  color: #222222; }
-  .blog .article-nav {
-    padding-top: 20px;
-    padding-bottom: 20px; }
-    .blog .article-nav ul {
-      list-style-type: none; }
-    .blog .article-nav .prev {
-      float: left; }
-    .blog .article-nav .next {
-      float: right; }
+  color: #222222;
+  background-color: #FFF;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  margin: 10px 0 10px 0;
+  padding: 0 20px 0 20px; }
   .blog .post-body {
     line-height: 1.6; }
+
+.white-box {
+  background-color: #FFF;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  margin: 10px 0 10px 0;
+  padding: 0 20px 0 20px; }
+
+.article-nav {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  .article-nav ul {
+    list-style-type: none; }
+  .article-nav .prev {
+    float: left; }
+  .article-nav .next {
+    float: right; }
 
 .category {
   color: #222;
   background-color: #FFF;
   padding: 0px 5px 0px 5px;
   margin: 5px 0px 5px 0px;
+  border: 1px solid #DDD;
   border-radius: 5px;
   line-height: 36px;
   transition: color 0.3s;
@@ -3896,7 +3913,6 @@ footer {
 
 .green-inset {
   background-color: #03a89e;
-  box-shadow: inset 0px 5px 5px #02857d, inset 0px -5px 5px #02857d;
   margin: 20px 0 20px 0; }
   .green-inset a {
     color: #222; }
@@ -3904,7 +3920,13 @@ footer {
       color: #444; }
 
 #about-img {
-  min-height: 250px; }
+  line-height: 0;
+  padding: 0 0 0 0; }
+  #about-img img {
+    min-height: 400px; }
+
+#contact {
+  padding-bottom: 15px; }
 
 .paginator {
   text-align: center; }
@@ -3916,3 +3938,10 @@ footer {
   display: block;
   margin-left: auto;
   margin-right: auto; }
+
+#disqus_thread {
+  padding-bottom: 20px; }
+
+#more-posts {
+  padding-right: 20px;
+  text-align: right; }

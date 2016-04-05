@@ -5,6 +5,16 @@
             Page {{ page_obj.number  }} of {{ page_obj.paginator.num_pages }}
         </p>
         <p>
+           {% if page_obj.has_previous %}
+                <a class="newer" href="?page={{ page_obj.previous_page_number }}">
+                    Newer
+                </a>
+            {% else %}
+                <span class="newer">
+                    Newer
+                </span>
+            {% endif %}
+            |
             {% if page_obj.has_next %}
                 <a class="older" href="?page={{ page_obj.next_page_number }}">
                     Older
@@ -12,16 +22,6 @@
             {% else %}
                 <span class="older">
                     Older
-                </span>
-            {% endif %}
-            |
-            {% if page_obj.has_previous %}
-                <a class="newer" href="?page={{ page_obj.previous_page_number }}">
-                    Newer
-                </a>
-            {% else %}
-                <span class="newer">
-                    Newer
                 </span>
             {% endif %}
         </p>
