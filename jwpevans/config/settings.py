@@ -144,9 +144,7 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'config.urls'
-
-#TODO: Remove this?
+ROOT_URLCONF = 'jwpevans.config.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -168,10 +166,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     # 3rd party apps
-    'south',
-    'django_extensions',
     'compressor',
-    'gunicorn',
     # Project specific apps go here
     'blog',
     'landing',
@@ -228,4 +223,3 @@ COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.JSMinFilter']
 # django-disqus
 DISQUS_API_KEY = os.environ.get('DISQUS_API_KEY')
 DISQUS_WEBSITE_SHORTNAME = 'jwpevans'
-

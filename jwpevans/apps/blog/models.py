@@ -3,7 +3,6 @@ from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils import timezone
-from django.utils.text import truncate_words
 
 from blog.managers import PublicManager
 
@@ -70,10 +69,6 @@ class Post(models.Model):
 
     def get_next_post(self):
         return self.get_next_by_publish(status__gte=2)
-
-    @property
-    def get_meta_description(self):
-        return truncate_words(self.tease, 255) or None
 
 
 class LatestEntriesFeed(Feed):
