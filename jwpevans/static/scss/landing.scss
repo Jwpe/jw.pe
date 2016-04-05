@@ -57,7 +57,11 @@ footer {
     .post-body {
         line-height: 1.6;
     }
-    background-color: #FFF;
+    h1 {
+        border-bottom: 2px solid lighten(#DDD, 7%);
+        padding-bottom: 8px;
+    }
+    background-color: white;
     border: 1px solid #DDD;
     border-radius: 5px;
     margin: 10px 0 10px 0;
@@ -65,7 +69,7 @@ footer {
 }
 
 .white-box {
-    background-color: #FFF;
+    background-color: white;
     border: 1px solid #DDD;
     border-radius: 5px;
     margin: 10px 0 10px 0;
@@ -91,7 +95,7 @@ footer {
 
 .category {
     color: #222;
-    background-color: #FFF;
+    background-color: white;
     padding: 0px 5px 0px 5px;
     margin: 5px 0px 5px 0px;
     border: 1px solid #DDD;
