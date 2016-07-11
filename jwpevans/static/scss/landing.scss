@@ -57,10 +57,22 @@ footer {
     .post-body {
         line-height: 1.6;
     }
+
     h1 {
         border-bottom: 2px solid lighten(#DDD, 7%);
         padding-bottom: 8px;
     }
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
     background-color: white;
     border: 1px solid #DDD;
     border-radius: 5px;

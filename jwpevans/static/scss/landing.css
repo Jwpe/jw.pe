@@ -3876,6 +3876,12 @@ footer {
   .blog h1 {
     border-bottom: 2px solid #efefef;
     padding-bottom: 8px; }
+  .blog img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  .blog ul {
+    padding-left: 20px; }
 
 .white-box {
   background-color: white;
