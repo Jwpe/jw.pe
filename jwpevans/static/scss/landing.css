@@ -3883,7 +3883,8 @@ footer {
   .blog iframe {
     display: block;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    margin-bottom: 20px; }
   .blog ul {
     padding-left: 20px; }
   .blog ol {
