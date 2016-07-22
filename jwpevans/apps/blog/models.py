@@ -10,7 +10,7 @@ from blog.managers import PublicManager
 class Category(models.Model):
     """Category model."""
     title = models.CharField(max_length=100)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(max_length=100, unique=True)
 
     class Meta:
         verbose_name = 'category'
@@ -36,7 +36,7 @@ class Post(models.Model):
     draft_id = models.IntegerField(blank=True, null=True)
 
     title = models.CharField(max_length=200)
-    slug = models.SlugField(unique_for_date='publish')
+    slug = models.SlugField(max_length=200, unique_for_date='publish')
     author = models.ForeignKey(User, blank=True, null=True)
 
     body = models.TextField()
